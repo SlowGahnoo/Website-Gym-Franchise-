@@ -9,7 +9,7 @@
 	<body>
 		<nav>
 			<ul>
-				<li><img src="" alt=""></li>
+				<li><img src="photos/logo.jpg" alt=""></li>
 				<li>Αρχική</li>
 				<li>Τελευταία Νέα</li>
 				<li>Γυμναστήρια</li>
@@ -17,30 +17,54 @@
 				<li>Προσωπικό</li>
 				<li>Συνδρομές</li>
 				<li>Επικοινωνία</li>
-				<li><input type="button" name="search" value="🔍"></li>
-				<li><input type="button" name="account" value="👮"></li>
-				<li><input type="button" name="cart" value="🛒"></li>
+				<li><button>🔍</button></li>
+				<li><button>👮</button></li>
+				<li><button>🛒</button></li>
 			</ul>
 		</nav>
 
-		<div class="card">
-			<h2>ΕΓΚΑΤΑΣΤΑΣΕΙΣ</h2>
-			<p>Ανακάλυψε τις εγκαταστάσεις των γυμναστηρίων μας.</p>
-			<a href="" class="button">Γυμναστήρια</a>
-			<img src="" alt="">
-		</div>
+		<div class="main">
+			<div class="card">
+				<div class="description">
+					<h2>ΕΓΚΑΤΑΣΤΑΣΕΙΣ</h2>
+					<p>Ανακάλυψε τις εγκαταστάσεις των γυμναστηρίων μας.</p>
+					<a href=""><button>Γυμναστήρια</button></a>
+				</div>
 
-		<div class="card">
-			<h2>TRAINERS</h2>
-			<p>Γνώρισε τους γυμναστές μας.</p>
-			<a href="" class="button">Προσωπικό</a>
-			<img src="" alt="">
-		</div>
+				<div class="facilities">
+					<img src="photos/facilities.jpg" alt="">
+				</div>
+					
+			</div>
+			
+			<div class="card">
+				<div class="description">
+					<h2>TRAINERS</h2>
+					<p>Γνώρισε τους γυμναστές μας.</p>
+					<a href=""><button>Προσωπικό</button></a>
+				</div>
+				<div class="trainers">
+					<img src="photos/trainers.jpg" alt="">
+				</div>
+	
+			</div>
+	
+			<div class="gallery">
 
-		<div class="gallery">
-		</div>
-
-		<div class="map">
+			</div>
+	
+			<div class="map">
+				<div class="mapouter">
+				<div class="gmap_canvas">
+					<iframe width="600" height="500" id="gmap_canvas" 
+						src="https://maps.google.com/maps?q=athens&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+						frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+				<br>
+				<style>.mapouter{position:relative;text-align:center;height:500px;width:100%;}</style>
+				<style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style>
+				</div>
+				</div>
+	
 		</div>
 		
 		<footer>
@@ -52,10 +76,14 @@
 
 			<img src="" alt="">
 
+			<div class="newslettermail">
+				
 			<table>
 				<tr><td><label for="newsletter">NEWSLETTER</label></td></tr>
-				<tr><td> <input type="text" name="newsletter" value="Email"> </td></tr>
+				<tr><td> <input type="text" name="newsletter" placeholder="Email"> </td></tr>
 			</table>
+
+			</div>
 		</footer>
 
 	
