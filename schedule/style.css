@@ -52,6 +52,34 @@ nav button {
 	background-color: black;
 }
 
+/* Main */
+.main {
+    margin: 40px;
+}
+
+/* List */
+.main ul {
+    list-style: none;
+}
+
+.main ul li {
+    margin-bottom: 30px;
+}
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+    background-color: #282828;
+}
+
+/* Images */
+.wrapper .image img {
+    width: 300px;
+    height: 300px;
+}
+
 /* Footer */
 
 footer {
