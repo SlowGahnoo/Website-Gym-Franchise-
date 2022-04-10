@@ -1,14 +1,14 @@
 body {
 	margin: 0;
-	font-family: "Open Sans";
-	background-color: black;
-	color: white;
+	font-family: "Open Sans", sans-serif;
+	color:white;
+	background-color: #282828;
 }
 
 nav {
 	position: sticky;
 	overflow: hidden;
-	background-color: #282828;
+	background-color: black;
 	margin: 0;
 	top: 0;
 	height: 100%;
@@ -17,18 +17,25 @@ nav {
 nav img {
 	width: 32px;
 	height: auto;
-}
 
+}
 
 nav ul {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
+	align-items: stretch;
 	width: 100%;
-	height: 100%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+
 }
 
 nav ul li {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
 	list-style: none;
 	color: white;
 	width: 100%;
@@ -36,13 +43,13 @@ nav ul li {
 	transition: background-color 0.1s;
 }
 
-nav ul li:hover {
-	background-color: white;
-	color: black;
+nav ul li  a{
+	text-decoration: none;
+	color: white;
 }
 
-nav ul li:first-child:hover {
-	background-color: black;
+nav ul li:nth-child(n+2):nth-child(-n+8):hover {
+	background-color: red;
 }
 
 nav button {
@@ -86,6 +93,12 @@ nav button {
 footer {
 	background-color: black;
 	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	padding-top: 2em;
+	padding-bottom: 2em;
 }
 
 footer li {
@@ -96,16 +109,9 @@ footer ul {
 	flex-direction: column;
 }
 
-footer {
-	padding: 2em;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	background-color: #282828;
-}
-
 footer input {
 	border-style: none;
 	height: 2em;
 	width: 15em;
+	margin-right: 5em;
 }
