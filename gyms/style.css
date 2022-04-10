@@ -1,0 +1,111 @@
+body {
+	margin: 0;
+	font-family: "Open Sans";
+	background-color: black;
+	color: white;
+}
+
+nav {
+	position: sticky;
+	overflow: hidden;
+	background-color: #282828;
+	margin: 0;
+	top: 0;
+	height: 100%;
+}
+
+nav img {
+	width: 32px;
+	height: auto;
+}
+
+
+nav ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+	height: 100%;
+}
+
+nav ul li {
+	list-style: none;
+	color: white;
+	width: 100%;
+	text-align: center;
+	transition: background-color 0.1s;
+}
+
+nav ul li:hover {
+	background-color: white;
+	color: black;
+}
+
+nav ul li:first-child:hover {
+	background-color: black;
+}
+
+nav button {
+	border-style: none;
+	background-color: black;
+}
+
+/* Header */
+.gyms header h2 {
+	color: white;
+	text-align: center;
+}
+
+.map header h2 {
+	color: white;
+	text-align: center;
+}
+
+/* Wrapper */
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	column-gap: 30px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Images */
+.gym .image img {
+	height: 300px;
+	width: 300px;
+}
+
+/* Location */
+.location p {
+	font-size: 20px;
+	text-align: center;
+}
+
+/* Footer */
+footer {
+	background-color: black;
+	color: white;
+}
+
+footer li {
+	list-style: none;
+}
+footer ul {
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	padding: 2em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: #282828;
+}
+
+footer input {
+	border-style: none;
+	height: 2em;
+	width: 15em;
+}
