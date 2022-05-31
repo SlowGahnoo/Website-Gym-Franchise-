@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="main">
+	<div class="test">
+	<div class="card">
+		<div class="description">
+			<h2>ΕΓΚΑΤΑΣΤΑΣΕΙΣ</h2>
+			<p>Ανακάλυψε τις εγκαταστάσεις των γυμναστηρίων μας.</p>
+			<a href="gyms"><button>Γυμναστήρια</button></a>
+		</div>
+
+			<img src="photos/facilities.jpg" alt="">
+			
+	</div>
+	
+	<div class="card">
+		<div class="description">
+			<h2>TRAINERS</h2>
+			<p>Γνώρισε τους γυμναστές μας.</p>
+			<a href="personnel"><button>Προσωπικό</button></a>
+		</div>
+			<img src="photos/trainers.jpg" alt="">
+
+	</div>
+	</div>
+
+	<div class="gallery">
+		<header>
+			<h2>GALLERY</h2>
+		</header>
+		<div class="container">
+			<div class="image" id="image0">
+				<img src="photos/crossfit.jpg">
+			</div>
+			<div class="image" id="image1">
+				<img src="photos/gym0.jpg">
+			</div>
+			<div class="image" id="image2">
+				<img src="photos/gym1.jpg">
+			</div>
+			<div class="image" id="image3">
+				<img src="photos/gym2.jpg">
+			</div>
+			<div class="image" id="image4">
+				<img src="photos/zumba.jpg">
+			</div>
+			<div class="image" id="image5">
+				<img src="photos/yoga.jpg">
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
