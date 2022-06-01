@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="../static/css/signup_style.css">
+<form>
+    <h1>Εγγραφή</h1>
+    <fieldset>
+        <legend>Προσωπικά Στοιχεία</legend>
+        <div>
+            <br>
+            <label>Ονοματεπώνυμο</label><br>
+            <input type="text" id="name" placeholder="Όνομα">
+            <input type="text" id="surname" placeholder="Επώνυμο">
+        </div>
+        <div>
+            <br><label>Στοιχεία Διεύθυνσης</label>
+            <br><input type="text" id="address" placeholder="Οδός και αριθμός" size="45"><br><br>
+            <input type="text" id="town" placeholder="Πόλη">
+            <input type="number" id="zip-code" placeholder="Ταχυδρομικός κώδικας">
+        </div>
+        <div>
+            <br><label>Στοιχεία επικοινωνίας</label>
+            <br><input type="tel" placeholder="Τηλέφωνο">
+            <input type="email" placeholder="Διεύθυνση μέιλ">
+        </div>
+        <div>
+            <br><label>Ημερομηνία γέννησης</label><br>
+            <input type="date" name="delivery-date">
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Εισάγετε Username και Password</legend>
+        <div>
+            <label>Όνομα Χρήστη</label><br>
+            <input type="text" id="username" placeholder="Username" size="45">
+        </div>
+        <div>
+            <label>Kωδικός Πρόσβασης</label><br>
+            <input type="text" id="password" placeholder="Password" size="45">
+        </div>
+        <div>
+            <label>Επιβεβαίωση Κωδικού Πρόσβασης</label><br>
+            <input type="text" id="password" placeholder="Password" size="45">
+        </div>
+    </fieldset>
+    <br>
+    <input type="submit" value="Υποβολή" >
+</form>
+{% endblock %}
