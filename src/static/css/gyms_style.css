@@ -1,0 +1,64 @@
+/* Header */
+.gyms header h2 {
+	color: white;
+	text-align: center;
+}
+
+.map header h2 {
+	color: white;
+	text-align: center;
+}
+
+/* Wrapper */
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	column-gap: 30px;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Images */
+.gym {
+    position: relative;
+}
+
+.gym .image img {
+	height: 300px;
+	width: 300px;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.gym_location {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.gym:hover .image {
+    opacity: 30%;
+}
+
+.gym:hover .gym_location {
+    opacity: 1;
+}
+  
+.gym_location {
+    color: white;
+    font-size: 16px;
+
+}
+
+/* Location */
+.location p {
+	font-size: 20px;
+	text-align: center;
+}
