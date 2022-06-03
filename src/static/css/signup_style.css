@@ -1,4 +1,42 @@
 form {
     margin: 20px;
+    text-align: center;
 }
 
+.account-info {
+    display: flex;
+    flex-flow: column;
+    align-self: center;
+
+}
+
+.account-info fieldset {
+    width: 30%;
+    align-self: center;
+}
+
+.account-info fieldset div input{
+    background-color: darkgray;
+    border-radius: 10px;
+    color: white;
+}
+
+.account-info fieldset div input:focus{
+    background-color: #cc0000;
+}
+
+.account-info fieldset div input::placeholder {
+    color: white;
+}
+
+.submit-button {
+    margin-top: 20px;
+    width: 15%;
+    border-radius: 10px;
+    transition: .5s ease;
+}
+
+.submit-button:hover {
+    background-color: #cc0000;
+    cursor: pointer;
+}
