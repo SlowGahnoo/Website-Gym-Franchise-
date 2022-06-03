@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="../static/css/login_style.css">
+<script src="../static/js/login.js" defer></script>
+<div class="login">
+    <header>
+        <h1>Login</h1>
+    </header>
+
+    <div class="account-type">
+        <h3>Παρακαλώ επιλέξτε τύπο λογαριασμού</h3>
+        <ul class="account-wrapper">
+            <li class="client" id="not_selected">
+                <img src="https://images.pexels.com/photos/3289711/pexels-photo-3289711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                <p>Πελάτης</p>
+            </li>
+            <li class="personnel" id="not_selected">
+                <img src="https://images.pexels.com/photos/416754/pexels-photo-416754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                <p>Προσωπικό</p>
+            </li>
+            <li class="administrator" id="not_selected">
+                <img src="https://images.pexels.com/photos/9180717/pexels-photo-9180717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                <p>Διαχειριστής</p>
+            </li>
+        </div>
+    </div>
+
+    <div class="credentials">
+        <div class="email">
+            <p>Email</p>
+            <input type="email">
+        </div>
+        <div class="password">
+            <p>Password</p>
+            <input type="password">
+        </div>
+        <button>Login</button>
+    </div>
+</div>
+{% endblock %}

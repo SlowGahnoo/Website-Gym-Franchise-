@@ -31,5 +31,21 @@ def subscription():
 def contact():
     return render_template("contact.html")
 
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/shop")
+def shop():
+    return render_template("shop.html")
+
+@app.route("/account")
+def account():
+    return render_template("account.html")
+
 if __name__ == "__main__":
     app.run(debug = True)
