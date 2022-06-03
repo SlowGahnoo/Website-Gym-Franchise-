@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="news">
+    <header>
+        <h2>Τελευταία Νέα</h2>
+    </header>
+    <ul>
+        <li>
+            <div class="announcement" id post="post-2">
+                <div class="left-col">
+                    <div class="image">
+                        <img src="../photos/offer.jpg">
+                    </div>
+                    <div class="post-date">
+                        <p>9/4/2022</p>
+                    </div>
+                </div>
+                <div class="news-text">
+                    <p>Μην χάσεις τις καινούργιες προσφορές μας.</p>
+                </div>
+            </div>
+        </li>
+        <li>
+           <div class="announcement" id="post-1">
+                <div class="left-col">
+                    <div class="image">
+                        <img src="../photos/gyms.jpg">
+                    </div>
+                    <div class="post-date">
+                        <p>1/4/2022</p>
+                    </div>
+               </div>
+               <div class="news-text">
+                   <p>Φτιάξε τώρα το δικό σου πρόγραμμα.</p>
+               </div>
+           </div> 
+        </li>
+        <li>
+            <div class="announcement" id="post-0">
+                <div class="left-col">
+                    <div class="image">
+                        <img src="../photos/welcome.jpg">
+                    </div>
+                    <div class="post-date">
+                        <p>29/3/2022</p>
+                    </div>
+                </div>
+                <div class="news-text">
+                    <p>Καλώς ορίσατε στο νέο μας site.</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+{% endblock %}
