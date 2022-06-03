@@ -53,6 +53,11 @@ header {
 .credentials div input {
     background-color: darkgray;
     border-radius: 10px;
+    color: white;
+}
+
+.credentials div input:focus {
+    background-color: #cc0000;
 }
 
 .credentials button {
