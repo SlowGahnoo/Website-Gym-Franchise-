@@ -10,6 +10,7 @@ header {
     display: flex;
     flex-flow: row;
     justify-content: center;
+    list-style: none;
 }
 
 .account-wrapper img {
@@ -21,7 +22,7 @@ header {
     border-radius: 25px;
 }
 
-.account-wrapper div p {
+.account-wrapper li p {
     text-align: center;
     transition: .5s ease;
     opacity: 0;
@@ -31,15 +32,16 @@ header {
     transform: translate(-50%, -50%);
 }
 
-.account-wrapper div:hover img {
+.account-wrapper li:hover img, .account-wrapper #selected img {
     opacity: 30%;
     cursor: pointer;
 }
 
-.account-wrapper div:hover p {
+.account-wrapper li:hover p, .account-wrapper #selected p {
     opacity: 1;
 }
 
+/* Credentials */
 .credentials {
     display: flex;
     flex-flow: column;

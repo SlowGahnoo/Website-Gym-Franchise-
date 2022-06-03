@@ -2,6 +2,7 @@
 
 {% block content %}
 <link rel="stylesheet" href="../static/css/login_style.css">
+<script src="../static/js/login.js" defer></script>
 <div class="login">
     <header>
         <h1>Login</h1>
@@ -9,19 +10,19 @@
 
     <div class="account-type">
         <h3>Παρακαλώ επιλέξτε τύπο λογαριασμού</h3>
-        <div class="account-wrapper">
-            <div class="client">
+        <ul class="account-wrapper">
+            <li class="client" id="not_selected">
                 <img src="https://images.pexels.com/photos/3289711/pexels-photo-3289711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
                 <p>Πελάτης</p>
-            </div>
-            <div class="personnel">
+            </li>
+            <li class="personnel" id="not_selected">
                 <img src="https://images.pexels.com/photos/416754/pexels-photo-416754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
                 <p>Προσωπικό</p>
-            </div>
-            <div class="administrator">
+            </li>
+            <li class="administrator" id="not_selected">
                 <img src="https://images.pexels.com/photos/9180717/pexels-photo-9180717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
                 <p>Διαχειριστής</p>
-            </div>
+            </li>
         </div>
     </div>
 
