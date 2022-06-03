@@ -1,0 +1,49 @@
+/* Main */
+.news {
+    margin: 40px;
+}
+
+/* Header */
+header {
+    color: white;
+    font-size: 40px;
+}
+
+/* Announcements */
+.announcement {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    background-color:#282828;
+}
+
+.announcement .post-date {
+    text-align: center;
+    font-size: 20px;
+}
+
+.news ul {
+    list-style: none;
+}
+
+.news li {
+    margin-bottom: 40px;
+}
+
+/* Images */
+.news img {
+    width: 300px;
+    height: 300px;
+}
+
+/*News-text*/
+.news-text p {
+    color: white;
+    font-size: 30px;
+}
+
+/* Post-date */
+.news .post-date {
+    color: white;
+}
