@@ -25,10 +25,9 @@ header {
 .account-wrapper li p {
     text-align: center;
     transition: .5s ease;
-    opacity: 0;
     position: relative;
     left: 50%;
-    bottom: 50%;
+    top: 5%;
     transform: translate(-50%, -50%);
 }
 
@@ -37,9 +36,7 @@ header {
     cursor: pointer;
 }
 
-.account-wrapper li:hover p, .account-wrapper #selected p {
-    opacity: 1;
-}
+
 
 /* Credentials */
 .credentials {
