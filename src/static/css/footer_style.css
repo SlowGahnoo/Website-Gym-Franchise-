@@ -1,0 +1,25 @@
+footer {
+	background-color: black;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+footer li {
+	list-style: none;
+}
+footer ul {
+	display: flex;
+	flex-direction: column;
+}
+
+footer input {
+	border-style: none;
+	height: 2em;
+	width: 15em;
+	margin-right: 5em;
+}
