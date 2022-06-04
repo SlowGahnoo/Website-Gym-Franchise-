@@ -57,5 +57,9 @@ def shop():
 def account():
     return render_template("account.html")
 
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
 if __name__ == "__main__":
     app.run(debug = True)
