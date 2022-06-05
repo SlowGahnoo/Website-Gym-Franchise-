@@ -1,0 +1,30 @@
+.description .image-wrapper img {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+.description {
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+}
+
+.image-wrapper {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column: 1;
+}
+
+div.article-info, div.subscription-info {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column: 2;
+}
+
+textarea.article-info, textarea.subscription-info {
+    height: 146px;
+    width: 730px;
+    background-color: gray;
+    color: white;
+}

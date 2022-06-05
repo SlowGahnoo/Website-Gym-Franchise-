@@ -7,6 +7,7 @@
 		<h2>ΓΥΜΝΑΣΤΗΡΙΑ</h2>
 	</header>
 	<div class="wrapper">
+		{% for gym in gymlist %}
 		<div class="gym" id="gym-0">
 			<div class="image">
 				<img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
@@ -18,37 +19,10 @@
 				<p>Τηλ:</p>
 			</div>
 			<div class="location">
-				<p>Αθήνα</p>
+				<p>{{ gym }}</p>
 			</div>
 		</div>
-		<div class="gym" id="gym-1">
-			<div class="image">
-				<img src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-			</div>
-			<div class="gym_location">
-				<p>Οδός:</p>
-				<p>Περιοχή:</p>
-				<p>ΤΚ:</p>
-				<p>Τηλ:</p>
-			</div>
-			<div class="location">
-				<p>Θεσσαλονίκη</p>
-			</div>
-		</div>
-		<div class="gym" id="gym-2">
-			<div class="image">
-				<img src="https://images.pexels.com/photos/791763/pexels-photo-791763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-			</div>
-			<div class="gym_location">
-				<p>Οδός:</p>
-				<p>Περιοχή:</p>
-				<p>ΤΚ:</p>
-				<p>Τηλ:</p>
-			</div>
-			<div class="location">
-				<p>Κρήτη</p>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 </div>
 {% endblock %}
