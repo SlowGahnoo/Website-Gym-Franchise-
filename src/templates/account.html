@@ -2,4 +2,52 @@
 
 {% block content %}
 <link rel="stylesheet" href="../static/css/account_style.css">
+<header>
+    <h1>Account</h1>
+</header>
+<div class="account">
+    <div class="photo">
+        <img src="{{ url_for('static', filename='assets/person.png') }}">
+        <button class="change-photo">Αλλαγή Φωτογραφίας</button>
+    </div>
+    <div class="account-edit">
+        <div class="account-info">
+            <h3>Προσωπικά Στοιχεία</h3>
+            <p>Όνομα: Name</p>
+            <p>Επώνυμο: Surname</p>
+            <p class="client-info">Ημερομηνία Γέννησης: Date of Birth</p>
+            <p>Τηλέφωνο: Phone</p>
+            <p>Email: Email</p>
+            <p>Ημερομηνία Δημιουργίας Λογαριασμού: Creation Date</p>
+            <p class="client-info">Κατοικία: City, Street & Number, Postal code</p>
+        </div>
+        <form class="password-change">
+            <h3>Αλλαγή Κωδικού</h3>
+            <div class="old-password">
+                <label for="old-password">Τρέχων Κωδικός:&emsp;&emsp;&emsp;&emsp;&nbsp;</label>
+                <input id="old-password" type="password" name="old-password"><br>
+            </div>
+            <div class="new-password">
+                <label for="new-password">Νέος Κωδικός:&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;</label>
+                <input id="new-password" type="password" name="new-password"><br>
+            </div>
+            <div class="retype-new-password">
+                <label for="retype-new-password">Επαλήθεση Νέου Κωδικού:</label>
+                <input id="retype-new-password" type="password" name="retype-new-password"><br>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Υποβολή">
+            </div>
+        </form>
+        <div class="subscriptions">
+            <h3>Συνδρομές</h3>
+        </div>
+        <div class="account-del">
+            <h3> Διαγραφή Λογαριασμού</h3>
+            <p>Αν επιθυμείτε να διαγραφείται από την πλατφόρμα επιλέξτε "Διαγραφή Λογαριασμού".</p>
+            <p>ΠΡΟΣΟΧΗ: Αν διαγραφεί ο λογαριασμός σας δεν γίνεται να επαναφερθεί.</p>
+            <button>Διαγραφή Λογαριασμού</button>
+        </div>
+    </div>
+</div>
 {% endblock %}
