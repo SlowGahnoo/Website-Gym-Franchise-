@@ -13,6 +13,12 @@
             <div class="article-info">
 
 				<form method="post" action="{{ url_for('news') }}">
+					<label>Τίτλος</label>
+					<br>
+					<input type="text" name="title"  class="title"></input>
+					<br>
+					<label>Άρθρο</label>
+					<br>
 					<textarea class="article-info" name="article-info" rows="8" cols="100">Προσθέστε την περιγραφή της ανακοίνωσης.</textarea>
 					<br>
 					<input type="submit" value="Δημοσίευση">
