@@ -7,6 +7,7 @@ db = SQLAlchemy()
 
 class Account(db.Model):
     email         = db.Column(db.String(120), primary_key = True)
+    password      = db.Column(db.String(72), nullable = False)
     creation_date = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     user_id       = db.Column(db.Integer, db.ForeignKey("user.id"))
     user          = db.relationship("User", back_populates = "account", uselist = False)
@@ -18,7 +19,7 @@ class User(db.Model):
     id      = db.Column(db.Integer, primary_key = True)
     name    = db.Column(db.String(80), nullable = False)
     surname = db.Column(db.String(80), nullable = False)
-    phone   = db.Column(db.String(15))
+    phone   = db.Column(db.String(15), unique = True)
     account = db.relationship("Account", back_populates = "user",
             uselist = False)
 
@@ -64,10 +65,10 @@ class Client_Subscription(db.Model):
     subscription = db.relationship('Subscription', back_populates='clients')
 
 class Client(User):
-    id = db.Column(None, db.ForeignKey('user.id'), primary_key = True)
-    city = db.Column(db.String(80))
-    street = db.Column(db.String(80))
-    postal_code = db.Column(db.Integer)
+    id       = db.Column(None, db.ForeignKey('user.id'), primary_key = True)
+    city     = db.Column(db.String(80))
+    address  = db.Column(db.String(80))
+    zip_code = db.Column(db.Integer)
     birthday = db.Column(db.DateTime)
 
     subscription = db.relationship('Client_Subscription', back_populates='client', uselist = False)

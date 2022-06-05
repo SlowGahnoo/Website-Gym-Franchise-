@@ -38,9 +38,13 @@ header {
 }
 
 /*News-text*/
-.news-text p {
+.news-title p {
     color: white;
     font-size: 30px;
+}
+
+.news-text p {
+	font-size: 20px;
 }
 
 /* Post-date */

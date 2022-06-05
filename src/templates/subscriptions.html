@@ -2,9 +2,9 @@
 
 {% block content %}
 <link rel="stylesheet" href="../static/css/shop_style.css">
-<div class="shop">
+<div class="subscriptions">
     <header>
-        <h1>Αγορά Συνδρομής</h1>
+        <h1>Συνδρομές</h1>
     </header>
     <div class="subscriptions">
         <ul>
@@ -13,12 +13,10 @@
                 <div class="image-wrapper">
                     <img src="https://images.pexels.com/photos/414029/pexels-photo-414029.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
                 </div>
-				<div class="subscription-details" id={{subscription.id}}>
-					<h3>{{ subscription.duration }}μηνιαία Συνδρομή</h3>
-					<p>Αποκτήστε τώρα {{ subscription.duration }} συνδρομή στην προνομιακή τιμή των {{ subscription.cost }}€.</p>
-				<form method="post">
-					<button type="submit" name="subscription" value="{{ subscription.id }}">Αγορά</button>
-				</form>
+                <div class="subscription-details">
+					<h3>{{ subscription.duration }}μηνιαία Συνδρομή ({{ subscription.cost }}€)</h3>
+					<p>Ημερομηνία αγοράς: {{ purchase_date.strftime("%D")}}</p>
+					<p>Διάρκεια: {{ time_left }}</p>
                 </div>
             </li>
 			{% endfor %}

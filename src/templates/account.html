@@ -13,13 +13,13 @@
     <div class="account-edit">
         <div class="account-info">
             <h3>Προσωπικά Στοιχεία</h3>
-            <p>Όνομα: Name</p>
-            <p>Επώνυμο: Surname</p>
-            <p class="client-info">Ημερομηνία Γέννησης: Date of Birth</p>
-            <p>Τηλέφωνο: Phone</p>
-            <p>Email: Email</p>
-            <p>Ημερομηνία Δημιουργίας Λογαριασμού: Creation Date</p>
-            <p class="client-info">Κατοικία: City, Street & Number, Postal code</p>
+			<p>Όνομα: {{ account.user.name }}</p>
+			<p>Επώνυμο: {{ account.user.surname }}</p>
+			<p class="client-info">Ημερομηνία Γέννησης: {{ account.user.birthday }}</p>
+			<p>Τηλέφωνο: {{ account.user.phone }}</p>
+			<p>Email: {{ account.email }}</p>
+			<p>Ημερομηνία Δημιουργίας Λογαριασμού: {{ account.creation_date.strftime("%B %d %Y") }}</p>
+			<p class="client-info">Κατοικία: {{ account.user.city }}, {{ account.user.address }}, {{ account.user.zip_code }}</p>
         </div>
         <form class="password-change">
             <h3>Αλλαγή Κωδικού</h3>

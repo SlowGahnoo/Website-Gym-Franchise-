@@ -15,12 +15,17 @@
         	                <img src="https://images.pexels.com/photos/1114376/pexels-photo-1114376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
         	            </div>
         	            <div class="post-date">
-        	                <p>9/4/2022</p>
+							<p>{{ news.pub_date.strftime("%b %d %Y") }}</p>
         	            </div>
         	        </div>
-        	        <div class="news-text">
-						<p>{{ news }}</p>
-        	        </div>
+					<div class="news">
+						<div class="news-title">
+							<p>{{ news.title }}</p>
+        	        	</div>
+        	        	<div class="news-text">
+							<p>{{ news.body }}</p>
+        	        	</div>
+					</div>
         	    </div>
         	</li>
 		{% endfor %}

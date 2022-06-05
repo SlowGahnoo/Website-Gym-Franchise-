@@ -26,16 +26,18 @@
         </div>
     </div>
 
+	<form method="post">
     <div class="credentials">
         <div class="email">
             <p>Email</p>
-            <input type="email">
+            <input type="text" name="email">
         </div>
         <div class="password">
             <p>Password</p>
-            <input type="password">
+            <input type="text" name="password">
         </div>
-        <button>Login</button>
+        <button type="submit">Login</button>
     </div>
+	</form>
 </div>
 {% endblock %}
