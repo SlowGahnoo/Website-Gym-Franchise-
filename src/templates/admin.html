@@ -11,10 +11,14 @@
                 <button class="photo-add">Προσθήκη Φωτογραφίας</button>
             </div>
             <div class="article-info">
-                <textarea class="article-info" rows="8" cols="100">Προσθέστε την περιγραφή της ανακοίνωσης.</textarea>
+
+				<form method="post" action="{{ url_for('news') }}">
+					<textarea class="article-info" name="article-info" rows="8" cols="100">Προσθέστε την περιγραφή της ανακοίνωσης.</textarea>
+					<br>
+					<input type="submit" value="Δημοσίευση">
+				</form>
             </div>
         </div>
-        <button class="publish">Δημοσίευση</button>
     </div>
     <div class="subscription-add">
         <h1>Προσθήκη Συνδρομής</h1>
