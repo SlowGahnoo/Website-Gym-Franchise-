@@ -34,8 +34,8 @@ function checkPasswords(passwordBox, rePasswordBox) {
     else passwordMatchMessage(false);
 }
 
-const passwordBox = document.querySelector("fieldset.login-info div #password");
-const rePasswordBox = document.querySelector("fieldset.login-info div #retype-password");
+const passwordBox = document.querySelector("fieldset.login-info div input.password");
+const rePasswordBox = document.querySelector("fieldset.login-info div input.password-confirm");
 const submitBtn = document.querySelector(".submit-button");
 
 rePasswordBox.addEventListener('input', () => checkPasswords(passwordBox, rePasswordBox));
