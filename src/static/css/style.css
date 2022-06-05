@@ -4,3 +4,14 @@ body {
 	color:white;
 	background-color: #282828;
 }
+
+.flex-wrapper {
+	display: flex;
+	min-height: 90vh;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.footer {
+	margin-top: auto;
+}
