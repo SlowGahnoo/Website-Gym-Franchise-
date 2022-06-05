@@ -7,7 +7,6 @@ form {
     display: flex;
     flex-flow: column;
     align-self: center;
-
 }
 
 .account-info fieldset {
@@ -30,10 +29,12 @@ form {
 }
 
 .submit-button {
+    position:relative;
     margin-top: 20px;
     width: 15%;
     border-radius: 10px;
     transition: .5s ease;
+    left: 42%;
 }
 
 .submit-button:hover {
