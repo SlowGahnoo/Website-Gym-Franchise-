@@ -13,13 +13,13 @@
 				<img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
 			</div>
 			<div class="gym_location">
-				<p>Οδός:</p>
-				<p>Περιοχή:</p>
-				<p>ΤΚ:</p>
-				<p>Τηλ:</p>
+				<p>Οδός: {{ gym.street }}</p>
+				<p>Περιοχή: {{ gym.area }}</p>
+				<p>ΤΚ: {{ gym.postal_code }}</p>
+				<p>Τηλ: {{ gym.phone }}</p>
 			</div>
 			<div class="location">
-				<p>{{ gym }}</p>
+				<p>{{ gym.area }}</p>
 			</div>
 		</div>
 		{% endfor %}

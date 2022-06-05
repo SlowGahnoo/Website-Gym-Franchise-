@@ -2,11 +2,15 @@
 
 {% block content %}
 <link rel="stylesheet" href="../static/css/shop_style.css">
-<div class="shop">
+<script src="../static/js/login.js" defer></script>
+<div class="login">
     <header>
-        <h1>Αγορά Συνδρομής</h1>
+        <h1>Επιβεβαίωση αγοράς</h1>
     </header>
+
     <div class="subscriptions">
+        <h3>Είστε σίγουροι πως θέλετε να αγοράσετε το παρακάτω προϊόν</h3>
+
         <ul>
 			{% for subscription in subscription_list %}
             <li>
@@ -23,6 +27,12 @@
             </li>
 			{% endfor %}
         </ul>
+		
+		<form method="post">
+    	    <button type="submit" name="confirm" value="yes">Yes</button>
+    	    <button type="submit" name="confirm" value="no">No</button>
+		</form>
     </div>
+
 </div>
 {% endblock %}

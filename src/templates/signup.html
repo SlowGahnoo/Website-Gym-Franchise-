@@ -3,49 +3,49 @@
 {% block content %}
 <link rel="stylesheet" href="../static/css/signup_style.css">
 <script src="{{ url_for('static', filename='js/signup.js') }}" defer></script>
-<form>
+<form method="post">
     <h1>Εγγραφή</h1>
     <div class="account-info">
-        <fieldset class="personal-info">
-            <legend>Προσωπικά Στοιχεία</legend>
-            <div>
-                <br>
-                <label>Ονοματεπώνυμο</label><br>
-                <input type="text" id="name" placeholder="Όνομα">
-                <input type="text" id="surname" placeholder="Επώνυμο">
-            </div>
-            <div>
-                <br><label>Στοιχεία Διεύθυνσης</label>
-                <br><input type="text" id="address" placeholder="Οδός και αριθμός" size="45"><br><br>
-                <input type="text" id="town" placeholder="Πόλη">
-                <input type="number" id="zip-code" placeholder="Ταχυδρομικός κώδικας">
-            </div>
-            <div>
-                <br><label>Στοιχεία επικοινωνίας</label>
-                <br><input type="tel" placeholder="Τηλέφωνο">
-            </div>
-            <div>
-                <br><label>Ημερομηνία γέννησης</label><br>
-                <input type="date" name="delivery-date">
-            </div>
-        </fieldset>
-        <fieldset class="login-info">
-            <legend>Εισάγετε Email και Password</legend>
-            <div>
-                <label>Email</label><br>
-                <input type="email" id="username" placeholder="Email" size="45">
-            </div>
-            <div>
-                <label>Kωδικός Πρόσβασης</label><br>
-                <input type="password" id="password" placeholder="Password" size="45">
-            </div>
-            <div>
-                <label>Επιβεβαίωση Κωδικού Πρόσβασης</label><br>
-                <input type="password" id="retype-password" placeholder="Password" size="45">
-            </div>
-        </fieldset>
+			<fieldset class="personal-info">
+        	    <legend>Προσωπικά Στοιχεία</legend>
+        	    <div>
+        	        <br>
+        	        <label>Ονοματεπώνυμο</label><br>
+        	        <input type="text" name="name" placeholder="Όνομα">
+        	        <input type="text" name="surname" placeholder="Επώνυμο">
+        	    </div>
+        	    <div>
+        	        <br><label>Στοιχεία Διεύθυνσης</label>
+        	        <br><input type="text" name="address" placeholder="Οδός και αριθμός" size="45"><br><br>
+        	        <input type="text" name="town" placeholder="Πόλη">
+        	        <input type="number" name="zip-code" placeholder="Ταχυδρομικός κώδικας">
+        	    </div>
+        	    <div>
+        	        <br><label>Στοιχεία επικοινωνίας</label>
+        	        <br><input type="text" name="phone" placeholder="Τηλέφωνο">
+        	    </div>
+        	    <div>
+        	        <br><label>Ημερομηνία γέννησης</label><br>
+        	        <input type="date" name="delivery-date">
+        	    </div>
+        	</fieldset>
+        	<fieldset class="login-info">
+        	    <legend>Εισάγετε Email και Password</legend>
+        	    <div>
+        	        <label>Email</label><br>
+        	        <input type="email" name="email" placeholder="Email" size="45">
+        	    </div>
+        	    <div>
+        	        <label>Kωδικός Πρόσβασης</label><br>
+        	        <input type="text" name="password" placeholder="Password" size="45">
+        	    </div>
+        	    <div>
+        	        <label>Επιβεβαίωση Κωδικού Πρόσβασης</label><br>
+        	        <input type="text" name="password-confirm" placeholder="Password" size="45">
+        	    </div>
+        	</fieldset>
+			<input class="submit-button" type="submit" value="Υποβολή" >
         <br>
     </div>
-    <input class="submit-button" type="submit" value="Υποβολή" >
 </form>
 {% endblock %}

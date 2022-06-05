@@ -5,6 +5,7 @@ body {
 	background-color: #282828;
 }
 
+
 .flex-wrapper {
 	display: flex;
 	min-height: 90vh;
@@ -15,3 +16,20 @@ body {
 .footer {
 	margin-top: auto;
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.flashes {
+	background-color: red;
+	margin-left: 10em;
+	margin-right: 10em;
+	list-style-type: none;
+	text-align: center;
+	animation: 1s ease-out 0s 1 slideInFromLeft;
