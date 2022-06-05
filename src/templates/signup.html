@@ -2,6 +2,7 @@
 
 {% block content %}
 <link rel="stylesheet" href="../static/css/signup_style.css">
+<script src="{{ url_for('static', filename='js/signup.js') }}" defer></script>
 <form>
     <h1>Εγγραφή</h1>
     <div class="account-info">
@@ -36,11 +37,11 @@
             </div>
             <div>
                 <label>Kωδικός Πρόσβασης</label><br>
-                <input type="text" id="password" placeholder="Password" size="45">
+                <input type="password" id="password" placeholder="Password" size="45">
             </div>
             <div>
                 <label>Επιβεβαίωση Κωδικού Πρόσβασης</label><br>
-                <input type="text" id="password" placeholder="Password" size="45">
+                <input type="password" id="retype-password" placeholder="Password" size="45">
             </div>
         </fieldset>
         <br>
