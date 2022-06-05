@@ -1,0 +1,28 @@
+.account {
+    display: flex;
+    flex-direction: row;
+    cursor: default;
+}
+
+.account .photo img {
+    display: block;
+    width: 300px;
+    height: auto;
+}
+
+.account .photo button{
+    position: relative;
+    left: 25%;
+}
+
+.account-info p {
+    padding-bottom: 10px;
+}
+
+.passoword-change div {
+    padding: 10px;
+}
+
+.account-del button {
+    margin-top: 10px;
+}
