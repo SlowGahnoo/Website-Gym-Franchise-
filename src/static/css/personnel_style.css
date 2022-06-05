@@ -1,0 +1,34 @@
+.personnel-card .personnel-name{
+	color: white;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.personnel-card .personnel-description{
+	color: white;
+	font-size: .9em;
+	margin: 2em;
+}
+
+.personnel-card {
+	width: 20em;
+	margin: 40px;
+	background-color: gray;
+}
+
+.personnel-card img {
+	width: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	background-color: white;
+	border-radius: 50%;
+}
+
+.personnel-list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+}

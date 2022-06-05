@@ -48,7 +48,8 @@ def schedule():
 
 @app.route('/personnel')
 def personnel():
-    return render_template('personnel.html')
+    trainerlist = Trainer.query.all()
+    return render_template('personnel.html', trainerlist = trainerlist)
 
 @app.route('/contact')
 def contact():
