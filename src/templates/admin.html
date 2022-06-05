@@ -1,7 +1,37 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_style.css') }}">
-
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+<div class="wrapper">
+    <div class="article">
+        <h1>Προσθήκη ανακοίνωσης</h1>
+        <div class="description">
+            <div class="image-wrapper">
+                <img class="article-photo" src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                <button class="photo-add">Προσθήκη Φωτογραφίας</button>
+            </div>
+            <div class="article-info">
+                <textarea class="article-info" rows="8" cols="100">Προσθέστε την περιγραφή της ανακοίνωσης.</textarea>
+            </div>
+        </div>
+        <button class="publish">Δημοσίευση</button>
+    </div>
+    <div class="subscription-add">
+        <h1>Προσθήκη Συνδρομής</h1>
+        <div class="description">
+            <div class="image-wrapper">
+                <img class="subscription-photo" src="https://images.pexels.com/photos/3761509/pexels-photo-3761509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                <button class="photo-add">Προσθήκη Φωτογραφίας</button>
+            </div>
+            <div class="subscription-info">
+                <textarea class="subscription-info" rows="9" col="100">Προσθέστε την περιγραφή της συνδρομής.</textarea>
+            </div>
+        </div>
+        <button class="subscription-add">Προσθήκη Συνδρομής</button>
+    </div>
+    <div class="subscription-edit">
+        <h1>Επεξεργασία Συνδρομών</h1>
+    </div>
+</div>
 
 {% endblock %}
