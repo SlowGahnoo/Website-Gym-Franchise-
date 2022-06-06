@@ -18,16 +18,16 @@ app.app_context().push()
 from db_models import *
 
 def login_account(a: Account):
-    session['name'] = f"{a.user.name} {a.user.surname}"
-    session['email'] = a.email
+    session['name']      = f"{a.user.name} {a.user.surname}"
+    session['email']     = a.email
     session['logged-in'] = True
-    session['basket'] = None
+    session['basket']    = None
 
 def logout_account():
-    session.pop('name', None)
-    session.pop('email', None)
+    session.pop('name',      None)
+    session.pop('email',     None)
     session.pop('logged-in', None)
-    session.pop('basket', None)
+    session.pop('basket',    None)
 
 @app.route('/')
 @app.route('/main')
@@ -48,7 +48,8 @@ def schedule():
 
 @app.route('/personnel')
 def personnel():
-    return render_template('personnel.html')
+    trainerlist = Trainer.query.all()
+    return render_template('personnel.html', trainerlist = trainerlist)
 
 @app.route('/contact')
 def contact():
@@ -182,8 +183,11 @@ def news():
                        .order_by(db.desc(Article.pub_date))
                        .all())
     if request.method == 'POST':
+        title = request.form.get('title')
         session['new-article'] = request.form.get('article-info')
-        newslist.append(session['new-article'])
+        a = Article(title = title, body = session['new-article'])
+        db.session.add(a)
+        db.session.commit()
         return redirect(url_for('news'))
     session.pop('new-article', None)
     return render_template('news.html', newslist = newslist)

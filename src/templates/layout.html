@@ -7,19 +7,22 @@
 		<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 	</head>
 	<body>
-		{% include "nav.html" %}
 
-		{% with messages = get_flashed_messages(with_categories=true) %}
-		  {% if messages %}
-		    <ul class=flashes>
-		    {% for category, message in messages %}
-		      <li class="{{ category }}">{{ message }}</li>
-		    {% endfor %}
-		    </ul>
-		  {% endif %}
-		{% endwith %}
-		{% block content %}
-		{% endblock %}
-		{% include "footer.html" %}
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	  {% if messages %}
+	    <ul class=flashes>
+	    {% for category, message in messages %}
+	      <li class="{{ category }}">{{ message }}</li>
+	    {% endfor %}
+	    </ul>
+	  {% endif %}
+	{% endwith %}
+
+    <div class="flex-wrapper">
+			<div class="navbar">{% include "nav.html" %}</div>
+			<div class="content">{% block content %}{% endblock %}</div>
+			<div class="footer">{% include "footer.html" %}</div>
+	</div>
+
 	</body>
 </html>

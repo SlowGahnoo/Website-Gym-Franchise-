@@ -5,6 +5,18 @@ body {
 	background-color: #282828;
 }
 
+
+.flex-wrapper {
+	display: flex;
+	min-height: 90vh;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.footer {
+	margin-top: auto;
+}
+
 @keyframes slideInFromLeft {
   0% {
     transform: translateY(-50%);
@@ -21,4 +33,3 @@ body {
 	list-style-type: none;
 	text-align: center;
 	animation: 1s ease-out 0s 1 slideInFromLeft;
-}
