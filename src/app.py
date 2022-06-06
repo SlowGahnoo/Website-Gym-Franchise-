@@ -69,16 +69,13 @@ def signup():
                 address  = request.form['address'],
                 zip_code = request.form['zip-code'],
             )
-            db.session.add(c)
-            db.session.commit()
-
             salt = bcrypt.gensalt()
             a = Account(
                 email    = request.form['email'],
                 password = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt),
-                user_id  = c.id
             )
-            db.session.add(a)
+            a.user = c
+            db.session.add_all([a, c])
             db.session.commit()
             login_account(a)
             return redirect(url_for('home'))
