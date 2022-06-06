@@ -10,7 +10,7 @@ class Account(db.Model):
     password      = db.Column(db.String(72), nullable = False)
     creation_date = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     user_id       = db.Column(db.Integer, db.ForeignKey("user.id"))
-    user          = db.relationship("User", back_populates = "account", uselist = False)
+    user          = db.relationship("User", back_populates = "account", uselist = False, enable_typechecks = False)
 
     def __repr__(self):
         return '<Account %r>'  % self.user
@@ -25,6 +25,11 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User %r>'  % self.id
+
+    db.__mapper_args__ = {
+        'polymorphic_identity': 'user',
+        'polymorphic_on': type 
+    }
 
 admin_article = db.Table('admin_article',
         db.Column('id_article', db.Integer, db.ForeignKey('article.id')),
@@ -78,7 +83,9 @@ class Client(User):
         return '<Client %r>' % self.id
 
     db.__tablename__ = 'client'
-    db.__mapper_args__ = {'polymorphic_identity': 'client'}
+    db.__mapper_args__ = {
+            'polymorphic_identity': 'client',
+    }
 
 class Subscription(db.Model):
     id = db.Column(db.Integer, primary_key = True)
