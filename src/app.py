@@ -90,7 +90,9 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password'].encode('utf-8')
-        a = Account.query.filter_by(email = email).first()
+        a = (Account.query
+                    .filter_by(email = email)
+                    .first())
         if a:
             if (matched := bcrypt.checkpw(password, a.password) == True):
                 login_account(a)
@@ -111,8 +113,12 @@ def logout():
 @app.route('/subscription')
 def subscription():
     if 'logged-in' in session:
-        a = Account.query.filter_by(email = session['email']).first()
-        c = Client.query.filter_by(id = a.user_id).first()
+        a = (Account.query
+                    .filter_by(email = session['email'])
+                    .first())
+        c = (Client.query
+                   .filter_by(id = a.user_id)
+                   .first())
         if c.subscription:
             subscription = c.subscription.subscription
             purchase_date = c.subscription.purchase_date
@@ -128,14 +134,20 @@ def subscription():
 def confirm():
     sid = session['basket']
     print(sid)
-    subscription = Subscription.query.filter_by(id = sid).first()
+    subscription = (Subscription.query
+                                .filter_by(id = sid)
+                                .first())
     print(subscription)
 
     if request.method == "POST":
         confirm = request.values.get('confirm')
         if confirm == "yes":
-            a = Account.query.filter_by(email = session['email']).first()
-            c = Client.query.filter_by(id = a.user_id).first()
+            a = (Account.query
+                        .filter_by(email = session['email'])
+                        .first())
+            c = (Client.query
+                       .filter_by(id = a.user_id)
+                       .first())
             if c.subscription:
                 db.session.delete(c.subscription)
                 db.session.commit()
@@ -167,7 +179,9 @@ def account():
     if not 'logged-in' in session:
         flash("Δεν είστε συνδεδεμένος")
         return redirect(url_for('login'))
-    a = Account.query.filter_by(email = session['email']).first()
+    a = (Account.query
+                .filter_by(email = session['email'])
+                .first())
     return render_template('account.html', account = a)
 
 @app.route('/admin', methods = ['GET', 'POST'])
