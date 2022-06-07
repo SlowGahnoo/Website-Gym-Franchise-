@@ -10,7 +10,7 @@ class Account(db.Model):
     password      = db.Column(db.String(72), nullable = False)
     creation_date = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
     user_id       = db.Column(db.Integer, db.ForeignKey("user.id"))
-    user          = db.relationship("User", back_populates = "account", uselist = False, enable_typechecks = False)
+    user          = db.relationship("User", back_populates = "account", uselist = False, enable_typechecks = False, cascade = "all, delete")
 
     def __repr__(self):
         return '<Account %r>'  % self.user
@@ -76,8 +76,8 @@ class Client(User):
     zip_code = db.Column(db.Integer)
     birthday = db.Column(db.DateTime)
 
-    subscription = db.relationship('Client_Subscription', back_populates='client', uselist = False)
-    gym = db.relationship("Gym_Client", back_populates = 'client', uselist = False)
+    subscription = db.relationship('Client_Subscription', back_populates='client', uselist = False, cascade = "all, delete")
+    gym = db.relationship("Gym_Client", back_populates = 'client', uselist = False, cascade = "all, delete")
 
     def __repr__(self):
         return '<Client %r>' % self.id
