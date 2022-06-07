@@ -124,7 +124,7 @@ def subscription():
         flash("Συνδεθείτε για να δείτε τη συνδρομή σας")
         return render_template('subscriptions.html')
 
-@app.route('/confirm/', methods = ["GET", "POST"])
+@app.route('/confirm', methods = ["GET", "POST"])
 def confirm():
     sid = session['basket']
     print(sid)
