@@ -12,7 +12,7 @@ class Account(db.Model):
     user_id       = db.Column(db.Integer, db.ForeignKey("user.id"))
     user          = db.relationship("User", back_populates = "account", uselist = False, enable_typechecks = False, cascade = "all, delete")
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover 
         return '<Account %r>'  % self.user
 
 class User(db.Model):
@@ -23,7 +23,7 @@ class User(db.Model):
     account = db.relationship("Account", back_populates = "user",
             uselist = False)
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover 
         return '<User %r>'  % self.id
 
     db.__mapper_args__ = {
@@ -41,7 +41,7 @@ class Admin(User):
 
     authors = db.relationship('Article', secondary=admin_article, backref='authors')
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover 
         return '<Admin %r>' % self.id
 
     db.__tablename__ = 'admin'
@@ -55,14 +55,14 @@ class Article(db.Model):
     pub_date = db.Column(db.DateTime, nullable = False,
             default = datetime.utcnow)
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover 
         return '<Post %r>' % self.title
 
 class Client_Subscription(db.Model):
     id_subcription = db.Column(db.ForeignKey('subscription.id'), 
             primary_key = True)
     id_client = db.Column(db.ForeignKey('client.id'),
-            primary_key = True)
+            primary_key = False)
     purchase_date = db.Column(db.DateTime, nullable = False, 
             default = datetime.utcnow)
 
@@ -79,7 +79,7 @@ class Client(User):
     subscription = db.relationship('Client_Subscription', back_populates='client', uselist = False, cascade = "all, delete")
     gym = db.relationship("Gym_Client", back_populates = 'client', uselist = False, cascade = "all, delete")
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover 
         return '<Client %r>' % self.id
 
     db.__tablename__ = 'client'
@@ -93,7 +93,7 @@ class Subscription(db.Model):
     duration = db.Column(db.Integer, nullable = False)
     clients = db.relationship('Client_Subscription', back_populates='subscription')
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover
         return '<Subscription %r>' % self.id
 
 trainer_gym = db.Table('trainer_gym',
@@ -112,14 +112,14 @@ class Gym(db.Model):
     trainers = db.relationship('Trainer', secondary=trainer_gym, back_populates = "gym")
     clients = db.relationship('Gym_Client', back_populates = 'gym')
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover 
         return '<Gym %r>' % self.id
 
 class Trainer(User):
     id  = db.Column(None, db.ForeignKey('user.id'), primary_key = True)
     gym = db.relationship("Gym", secondary=trainer_gym, uselist = False)
 
-    def __repr__(self):
+    def __repr__(self): # pragma: no cover 
         return '<Trainer %r>' % self.id
 
     db.__tablename__ = 'trainer'

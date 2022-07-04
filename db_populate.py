@@ -1,4 +1,5 @@
-from app import *
+from src.app import *
+# from src.database.db_models import *
 from random import shuffle
 
 print("Cleaning database")
@@ -65,7 +66,3 @@ try:
 except Exception as e:
     print(e)
     db.drop_all()
-
-
-
-
