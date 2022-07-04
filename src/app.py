@@ -3,19 +3,18 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from db_models import db
 from dataclasses import dataclass
 import bcrypt
 
 app = Flask(__name__)
 
 # Set SQLAlchemy engine
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 app.secret_key = 'test'
-db.init_app(app)
-app.app_context().push()
-from db_models import *
+from .database import *
+from .database.dbman import *
+dbman = DBManager(db, app)
 
 def login_account(a: Account):
     session['name']      = f"{a.user.name} {a.user.surname}"
@@ -39,7 +38,7 @@ def home():
 
 @app.route('/gyms')
 def gyms():
-    gymlist = Gym.query.all()
+    gymlist = dbman.fetchTable(Gym)
     return render_template('gyms.html', gymlist = gymlist)
 
 @app.route('/schedule')
@@ -48,7 +47,7 @@ def schedule():
 
 @app.route('/personnel')
 def personnel():
-    trainerlist = Trainer.query.all()
+    trainerlist = dbman.fetchTable(Trainer)
     return render_template('personnel.html', trainerlist = trainerlist)
 
 @app.route('/contact')
@@ -74,13 +73,12 @@ def signup():
                 email    = request.form['email'],
                 password = bcrypt.hashpw(request.form['password'].encode('utf-8'), salt),
             )
-            a.user = c
-            db.session.add_all([a, c])
-            db.session.commit()
+            dbman.pushNewAccount(c, a)
+            dbman.commit()
             login_account(a)
             return redirect(url_for('home'))
         except exc.IntegrityError as e:
-            flash("User already exists", "<strong>Error:</strong>")
+            flash("User already exists")
     return render_template('signup.html')
 
 @app.route('/login', methods = ['GET', 'POST'])
@@ -90,9 +88,7 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password'].encode('utf-8')
-        a = (Account.query
-                    .filter_by(email = email)
-                    .first())
+        a = dbman.getAccount(email = email)
         if a:
             if (matched := bcrypt.checkpw(password, a.password) == True):
                 login_account(a)
@@ -113,12 +109,9 @@ def logout():
 @app.route('/subscription')
 def subscription():
     if 'logged-in' in session:
-        a = (Account.query
-                    .filter_by(email = session['email'])
-                    .first())
-        c = (Client.query
-                   .filter_by(id = a.user_id)
-                   .first())
+        a = dbman.getAccount(email = session['email'])
+        c = dbman.getClient(_id = a.user_id)
+
         if c.subscription:
             subscription = c.subscription.subscription
             purchase_date = c.subscription.purchase_date
@@ -133,26 +126,14 @@ def subscription():
 @app.route('/confirm', methods = ["GET", "POST"])
 def confirm():
     sid = session['basket']
-    print(sid)
-    subscription = (Subscription.query
-                                .filter_by(id = sid)
-                                .first())
-    print(subscription)
+    subscription = dbman.getSubscription(_id = sid)
 
     if request.method == "POST":
         confirm = request.values.get('confirm')
         if confirm == "yes":
-            a = (Account.query
-                        .filter_by(email = session['email'])
-                        .first())
-            c = (Client.query
-                       .filter_by(id = a.user_id)
-                       .first())
-            if c.subscription:
-                db.session.delete(c.subscription)
-                db.session.commit()
-            subscription.clients.append(Client_Subscription(client = c))
-            db.session.commit()
+            a = dbman.getAccount(email = session['email'])
+            c = dbman.getClient(_id = a.user_id)
+            dbman.setSubscription(s, a)
             session['basket'] = None
             return redirect(url_for('subscription'))
         else:
@@ -166,7 +147,7 @@ def confirm():
 
 @app.route('/shop', methods = ["POST", "GET"])
 def shop():
-    subscription_list = Subscription.query.all()
+    subscription_list = dbman.fetchTable(Subscription)
     sid = 0
     if 'logged-in' in session:
         if request.method == "POST":
@@ -179,9 +160,7 @@ def account():
     if not 'logged-in' in session:
         flash("Δεν είστε συνδεδεμένος")
         return redirect(url_for('login'))
-    a = (Account.query
-                .filter_by(email = session['email'])
-                .first())
+    a = dbman.getAccount(email = session['email'])
     return render_template('account.html', account = a)
 
 @app.route('/admin', methods = ['GET', 'POST'])
@@ -190,15 +169,12 @@ def admin():
 
 @app.route('/news', methods = ['GET', 'POST'])
 def news():
-    newslist = (Article.query
-                       .order_by(db.desc(Article.pub_date))
-                       .all())
+    newslist = reversed(dbman.fetchTable(Article))
     if request.method == 'POST':
         title = request.form.get('title')
         session['new-article'] = request.form.get('article-info')
-        a = Article(title = title, body = session['new-article'])
-        db.session.add(a)
-        db.session.commit()
+        dbman.pushEntity(Article(title = title, body = session['new-article']))
+        dbman.commit()
         return redirect(url_for('news'))
     session.pop('new-article', None)
     return render_template('news.html', newslist = newslist)
