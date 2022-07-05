@@ -112,6 +112,7 @@ def subscription():
         a = dbman.getAccount(email = session['email'])
         c = dbman.getClient(_id = a.user_id)
 
+        print(c.subscription)
         if c.subscription:
             subscription = c.subscription.subscription
             purchase_date = c.subscription.purchase_date
@@ -133,7 +134,8 @@ def confirm():
         if confirm == "yes":
             a = dbman.getAccount(email = session['email'])
             c = dbman.getClient(_id = a.user_id)
-            dbman.setSubscription(s, a)
+            dbman.setSubscription(subscription, a)
+            dbman.commit()
             session['basket'] = None
             return redirect(url_for('subscription'))
         else:
