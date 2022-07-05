@@ -2,3 +2,9 @@
 src/__pycache__
 
 src/test.db
+src/database/__pycache__
+src/database.db
+src/test_database.db
+test/__pycache__
+test/.coverage
+.coverage
